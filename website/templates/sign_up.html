@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block
+content %}
+<div class="invisible">
+  <h1>Blijkbaar nodig</h1>
+</div>
+
+<form method="POST">
+  <h3 align="center">Registreer</h3>
+  <div class="form-group">
+    <label for="firstName">Naam</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      name="firstName"
+      placeholder="Geef naam in"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password1">Wachtwoord</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password1"
+      name="password1"
+      placeholder="Geef wachtwoord op"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password2">Wachtwoord (Bevestig)</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password2"
+      name="password2"
+      placeholder="Bevestig wachtwoord"
+    />
+  </div>
+  <br />
+  <button type="submit" class="btn btn-primary">Creëer account</button>
+</form>
+{% endblock %}

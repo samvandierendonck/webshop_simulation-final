@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+
+      /* ============ desktop view ============ */
+      @media all and (min-width: 992px) {
+        .navbar .nav-item .dropdown-menu{ display: none; }
+        .navbar .nav-item:hover .nav-link{   }
+        .navbar .nav-item:hover .dropdown-menu{ display: block; }
+        .navbar .nav-item .dropdown-menu{ margin-top:0; }
+      }	
+      /* ============ desktop view .end// ============ */
+      
+      </style>
+    
+
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false"  aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main_nav">
+          <ul class="navbar-nav navbar-dark bg-dark">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" id="start_page" href="/">Instructies</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="freshproducts" href="#" data-bs-toggle="dropdown">Verse producten</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/apero"> Aperitief </a></li>
+                <li><a class="dropdown-item" href="/bread-pastry"> Brood & Patisserie </a></li>
+                <li><a class="dropdown-item" href="/butcher"> Beenhouwerij </a></li>
+                <li><a class="dropdown-item" href="/meat"> Charcuterie </a></li>
+                <li><a class="dropdown-item" href="/fruit-vegetables"> Groenten & fruit </a></li>
+                <li><a class="dropdown-item" href="/catering-prepared-meals"> Traiteur & bereide maaltijden </a></li>
+                <li><a class="dropdown-item" href="/vegi-vegan-fresh"> Vegetarisch & vegan </a></li>
+                <li><a class="dropdown-item" href="/fish-sushi"> Vis & sushi </a></li>
+                <li><a class="dropdown-item" href="/dairy"> Zuivel </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="groceries" href="#" data-bs-toggle="dropdown">Kruidenierswaren</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/breakfast"> Ontbijt </a></li>
+                <li><a class="dropdown-item" href="/world-kitchen"> Wereldkeuken </a></li>
+                <li><a class="dropdown-item" href="/desserts-sugar-flour"> Desserts, suiker & bloem </a></li>
+                <li><a class="dropdown-item" href="/candy"> Snoepgoed </a></li>
+                <li><a class="dropdown-item" href="/chocolate"> Chocolade </a></li>
+                <li><a class="dropdown-item" href="/chips-apero"> Chips & aperitief </a></li>
+                <li><a class="dropdown-item" href="/cookies-pies"> Koeken & taarten </a></li>
+                <li><a class="dropdown-item" href="/rusk-crackers"> Beschuit & crackers </a></li>
+                <li><a class="dropdown-item" href="/canned"> Conserven </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="drinks" href="#" data-bs-toggle="dropdown">Dranken</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/water"> Water </a></li>
+                <li><a class="dropdown-item" href="/fruit-vegetables-drinks"> Vruchten & groentensap </a></li>
+                <li><a class="dropdown-item" href="/syrups"> Siropen </a></li>
+                <li><a class="dropdown-item" href="/milk-plant-based-drinks"> Melk & plantaardige dranken </a></li>
+                <li><a class="dropdown-item" href="/hot-drinks"> Warme dranken </a></li>
+                <li><a class="dropdown-item" href="/soft-drinks"> Softdrinks </a></li>
+                <li><a class="dropdown-item" href="/beer"> Bier </a></li>
+                <li><a class="dropdown-item" href="/apero-strong-drink"> Aperitieven & sterke drank </a></li>
+                <li><a class="dropdown-item" href="/wines"> Wijnen </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="frozenproducts" href="#" data-bs-toggle="dropdown">Diepvries</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="vegi-vegan-frozen"> Vegetarisch & vegan </a></li>
+                <li><a class="dropdown-item" href="ice-desserts"> Ijs & desserten </a></li>
+                <li><a class="dropdown-item" href="pizza-quiches"> Pizza & quiches </a></li>
+                <li><a class="dropdown-item" href="bread-cake"> Brood & gebak </a></li>
+                <li><a class="dropdown-item" href="snacks-apero"> Snacks & aperitiefhapjes </a></li>
+                <li><a class="dropdown-item" href="starters"> Voorgerechten </a></li>
+                <li><a class="dropdown-item" href="prepared-meals"> Bereide maaltijden </a></li>
+                <li><a class="dropdown-item" href="fish"> Vis </a></li>
+                <li><a class="dropdown-item" href="vegetables"> Groenten </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="baby" href="#" data-bs-toggle="dropdown">Baby</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/milk-drinks"> Melk & dranken </a></li>
+                <li><a class="dropdown-item" href="/baby-food"> Babyvoeding </a></li>
+                <li><a class="dropdown-item" href="/baby-care"> Verzorging baby </a></li>
+                <li><a class="dropdown-item" href="/diapers"> Luiers & luierbroekjes </a></li>
+                <li><a class="dropdown-item" href="/detergent-baby"> Wasmiddelen baby </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="care" href="#" data-bs-toggle="dropdown">Verzorging & hygiëne</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/mouth-hiegene"> Mondhygiëne </a></li>
+                <li><a class="dropdown-item" href="/body"> Lichaam </a></li>
+                <li><a class="dropdown-item" href="/hair"> Haar </a></li>
+                <li><a class="dropdown-item" href="/face"> Gezicht </a></li>
+                <li><a class="dropdown-item" href="/men"> Mannen </a></li>
+                <li><a class="dropdown-item" href="/hiegene"> Hygiëne </a></li>
+                <li><a class="dropdown-item" href="/pharmacie"> Apotheek </a></li>
+                <li><a class="dropdown-item" href="/travel-size"> Reisformaat </a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="maintenance" href="#" data-bs-toggle="dropdown">Onderhoud</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/toiletpaper-papertowels-tissues"> Toiletpapier, keukenpapier & zakdoeken </a></li>
+                <li><a class="dropdown-item" href="/detergents"> Wasmiddelen </a></li>
+                <li><a class="dropdown-item" href="/laundry-care"> Verzorging van de was </a></li>
+                <li><a class="dropdown-item" href="/dishwashing-products"> Vaatwasproducten </a></li>
+                <li><a class="dropdown-item" href="/cleaning-products"> Schoonmaakproducten </a></li>
+                <li><a class="dropdown-item" href="/airfreshener-refill"> Luchtverfrisser & navulling </a></li>
+                <li><a class="dropdown-item" href="/maintenance-accessoires"> Onderhoudsaccessoires </a></li>
+                <li><a class="dropdown-item" href="/cleaning-accessoires"> Huishoudaccessoires </a></li>
+                <li><a class="dropdown-item" href="/pesticides"> Insecticides </a></li>
+              </ul>
+            </li>
+            {% endif %}
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" id="cart_items" href="/cart-items">Mandje</a></li>
+            <li class="nav-item"><a class="nav-link" id ="logout" href="/logout">Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" id="start_page" href="/sign-up">Registreer</a></li>
+            <li class="nav-item"><a class="nav-link" id="login" href="/login">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show fixed-top" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show fixed-top" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container">{% block content %} {% endblock %}</div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+     src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+     crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js') }}"
+    ></script>
+
+    <style>
+      .gallery_container{
+          position: relative;
+          width: 250px;
+          height: 250px;
+          float: left;
+      }
+
+      .gallery_container_text{
+          height: 50px;
+          float: bottom;
+      }
+
+      .gallery_pict{
+          opacity: 1;
+          display: block;
+          width: 150px;
+          height: 150px;
+          transition: .5s ease;
+          backface-visibility: hidden;
+      }
+
+      .card_img_top{
+        width:  50px;
+        height: 50px;
+        object-fit: cover;
+
+      }
+
+      .img-fluid {
+        max-width: 70%;
+        height: auto;
+      }
+
+      .invisible {
+        visibility: hidden;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .gallery_centerpict{
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+      }
+
+      .gallery_middle{
+          transition: .5s ease;
+          opacity: 0;
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          text-align: left;
+      }
+
+      .gallery_container:hover .gallery_pict{
+          opacity: 0.3;
+      }
+
+      .gallery_container:hover .gallery_middle{
+          opacity: 1;
+      }
+
+      .gallery_text{
+          background-color: #8f98f8;
+          color: rgb(255, 255, 255);
+          font-size: 16px;
+          padding: 16px 32px;
+      }
+
+      .gallery_env{
+          position: relative;
+          left: 1%;
+          width: 98%;
+          height: 500px;
+      }
+      .col-md-4 {
+          border-radius:200px;
+          margin:50px;
+          border:1px solid #000;
+          display:inline-block;
+          float:none !important;
+      }
+    </style>
+
+  </body>
+</html>

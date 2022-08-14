@@ -1,0 +1,50 @@
+{% extends "base.html" %} 
+{% block title %}Shopping List{% endblock %} 
+{% block content %}
+<div class="invisible">
+    <h1>Blijkbaar nodig</h1>
+</div>
+<h1 align="center">Mandje</h1>
+{% for item in user.shoppinglist %}
+    <div class="card">
+        <div class="card-header">
+            <div class="header">
+                {{ item.name }}
+                <form method='POST'>
+                    <input type=hidden name='id' value='{{ item.id }}'>
+                    <button class='btn btn-danger' type='submit'><span aria-hidden="true">&times;</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+                {{ item.base_price + ' ' + item.base_price_type}}
+            </div>
+            <div class="col">
+                <p class="text-muted">{{ item.big_price }}</p>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+{% endfor %}
+<div class="card text-white bg-secondary mb-3" style="max-width: 28rem;">
+    <div class="card-header">
+        <div class="header">
+            <div class="row">
+                <div class="col">
+                    <p class="text-start">Totaal prijs:</p>
+                </div>
+                <div class="col">
+                    <p class="text-end">{{sum_prices.replace('.',',')+'€'}}</p>
+                </div>
+            </div>
+            <form method='POST'>
+                <input type=hidden name='save_shoppinglist' value='{{ user.id }}'>
+                <button class='btn btn-success' type='submit'><span aria-hidden="true">Stuur winkelmand door</span></button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
