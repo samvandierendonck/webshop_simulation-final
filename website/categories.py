@@ -1416,10 +1416,10 @@ def maintenance_accessoires():
 
     return render_template("category.html",name_header=name_header,products_info=products_info, user=current_user)
 
-@categories.route('/cleaning-accessories',methods=['GET','POST'])
+@categories.route('/cleaning-accessoires',methods=['GET','POST'])
 @login_required
-def cleaning_accessories():
-    name = 'Huishoudsaccessoires'
+def cleaning_accessoires():
+    name = 'huishoudsaccessoires'
     name_header = clean_name(name)
 
     static_directory = os.path.join(os.getcwd(),r'website/static')
