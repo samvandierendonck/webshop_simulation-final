@@ -1371,7 +1371,7 @@ def cleaning_products():
 @categories.route('/airfreshener-refill',methods=['GET','POST'])
 @login_required
 def air_freshener_refill():
-    name = 'luchtverfrisser__navulling'
+    name = 'luchtverfrissers__navullingen'
     name_header = clean_name(name)
 
     static_directory = os.path.join(os.getcwd(),r'website/static')
