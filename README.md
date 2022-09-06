@@ -1,4 +1,4 @@
-# Flask Web App Tutorial
+# Online grocery store simulation
 
 ## Setup & Installtion
 
