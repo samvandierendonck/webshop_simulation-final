@@ -1222,30 +1222,6 @@ def pharmacy():
 
     return render_template("category.html",name_header=name_header,products_info=products_info, user=current_user)
 
-@categories.route('/travel-size',methods=['GET','POST'])
-@login_required
-def travel_size():
-    name = 'reisformaat'
-    name_header = clean_name(name)
-
-    static_directory = os.path.join(os.getcwd(),r'website/static')
-    df_products_info = pd.read_csv(f'{static_directory}/webscrape_info_{name}.csv')
-    products_info = df_products_info.to_dict('records')
-
-    if request.method == 'POST':
-        product_name = request.form.get('product_name')
-        product_img = request.form.get('product_img')
-        product_base_price = request.form.get('product_base_price')
-        product_base_price_type = request.form.get('product_base_price_type')
-        product_big_price = request.form.get('product_big_price')
-        new_product = Selected_item(name=product_name,img=product_img,base_price=product_base_price,base_price_type=product_base_price_type,big_price=product_big_price, user_id=current_user.id)
-        db.session.add(new_product)
-        db.session.commit()
-        if product_name != '':
-            flash(f'Artiekel {product_name} toegevoegd aan mandje', category='success')
-
-    return render_template("category.html",name_header=name_header,products_info=products_info, user=current_user)
-
 ###Categories of maintenance###
 
 @categories.route('/toiletpaper-papertowels-tissues',methods=['GET','POST'])
