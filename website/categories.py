@@ -1419,7 +1419,7 @@ def maintenance_accessoires():
 @categories.route('/cleaning-accessoires',methods=['GET','POST'])
 @login_required
 def cleaning_accessoires():
-    name = 'huishoudsaccessoires'
+    name = 'huishoudaccessoires'
     name_header = clean_name(name)
 
     static_directory = os.path.join(os.getcwd(),r'website/static')
