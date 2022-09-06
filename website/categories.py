@@ -1392,10 +1392,10 @@ def air_freshener_refill():
 
     return render_template("category.html",name_header=name_header,products_info=products_info, user=current_user)
 
-@categories.route('/maintenance-accessories',methods=['GET','POST'])
+@categories.route('/maintenance-accessoires',methods=['GET','POST'])
 @login_required
-def maintenance_accessories():
-    name = 'Onderhoudsaccessoires'
+def maintenance_accessoires():
+    name = 'onderhoudsaccessoires'
     name_header = clean_name(name)
 
     static_directory = os.path.join(os.getcwd(),r'website/static')
